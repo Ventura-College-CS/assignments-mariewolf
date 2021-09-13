@@ -20,15 +20,18 @@ int main() {
         if (position != -1)
                 cout << "Found your string at: " << position << endl;
         else
-                cout << "Not found\n";
+                cout << "Not found.\n";
         return 0;
 }
 
 int finduserstring(char cstr[], int cstrlen, char userstr[], int userlen) {
-    int flag = -1; /*
-    for (int i=0; i=(strlen(cstr)-strlen(userstr)); i++) {
-        for (int j=0; j=strlen(userstr); j++) {
+    int flag = -1;
+    int counter = 0;
+    for (int i=0; i<=(strlen(cstr)-strlen(userstr)); i++) {
+        for (int j=0; j<=strlen(userstr); j++) {
+            if (userstr[j] == cstr[i+j]) counter += 1;
+            if (counter == userlen) flag = i;
         }
-    } */
+    }
     return flag;
 }
