@@ -23,13 +23,20 @@ int main() {
     
     for (int i=0; i<NUM; i++) {
         sFile >> rookies[i].sID >> rookies[i].sName >> rookies[i].score1 >> rookies[i].score2;
-        sBin << rookies[i].sID << rookies[i].sName << rookies[i].score1 << rookies[i].score2; }
+        sBin << rookies[i].sID << rookies[i].sName << rookies[i].score1 << rookies[i].score2; } // this line does not means binary output.
+    // Instead of this, sBin.write( (char *)rookies[i], sizeof(rookies[i]);
+    
+    
     
     sBin.close();
     sFile.close();
 
     cout << "Enter an ID to search for that students' records: ";
     cin >> searchID;
+    
+    // The below code is not the search from the binary file.
+    // In your code, you were trying to find the certain student in the rookies[i] array directly, not the file
+    
     
     if (findStudent(searchID) != -1) {
         f = (findStudent(searchID));
