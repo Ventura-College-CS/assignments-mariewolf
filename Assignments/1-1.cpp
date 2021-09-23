@@ -40,6 +40,11 @@ int main() {
     
     if (findStudent(searchID) != -1) {
         f = (findStudent(searchID));
+
+		// no need to call twice. Instead of it, if (f = findStudnet(searchID)) != -1 )
+
+
+
         cout << "\nFound on line " << f+1 << "." << endl;
         cout << "\nID #: " << rookies[f].sID << "\nName: " << rookies[f].sName;
         cout << "\nScore 1: " << rookies[f].score1 << "\nScore 2: " << rookies[f].score2;
@@ -53,6 +58,14 @@ int main() {
 int findStudent(int N) {
     int flag = -1;
     ifstream sBin("student.bin");
+	
+	// You don't use it after opening it.
+	// why do you open the file here? You are supposed to read all lines and save them to Struct?
+	// Yes. right.
+	// Please read the suggested file K1-1read.cpp
+
+
+
     for (int i = 0; i<NUM; i++) {
         if (rookies[i].sID == N) flag = i;
     }
