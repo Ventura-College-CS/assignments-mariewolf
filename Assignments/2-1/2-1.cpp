@@ -8,13 +8,10 @@ int main() {
 
     ptr = numbers;
 
-    cout << "Printed array with pointer treated as array notation: \n";
-    for (int i=0; i<N; i++)
-        cout << ptr[i] << " ";
     cout << "\nPrinted array with pointer arithmetic: \n";
     for (int i=0; i<N; i++)
-        cout << *(numbers+i) << " ";
-    cout << endl << "Address of first element: " << &ptr << endl;
-
+        cout << *(ptr+i) << "\t"; //prints by memory address, incremented by i*sizeof(double). The arithmetic expression pointing to the ith element is *(ptr+i)
+    cout << endl << "Address of first element (using ptr): " << ptr << endl; //ptr has the memory address of numbers (and the first element)
+    cout << "Address of numbers: " << &numbers << endl; //to show they are the same
     return 0;
 }
