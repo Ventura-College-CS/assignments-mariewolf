@@ -14,14 +14,12 @@ public:
 	}
 };
 
-class Compare1
-{
+class Compare1 {
 public:
-	int operator()(const int &lhs, const int &rhs) {return lhs > rhs;}
+	int operator()(const int &lhs, const int &rhs) {return lhs < rhs;}
 };
 
-class Compare2
-{
+class Compare2 {
 public:
 	int operator()(const int &lhs, const int &rhs)
 	{
@@ -32,9 +30,8 @@ public:
 	}
 };
 
-int main()
-{
-	priority_queue<int, vector<int>, MyCompareFunction> pq;
+int main() {
+    priority_queue<int, vector<int>, MyCompareFunction> pq;
     priority_queue<int, vector<int>, Compare1> exq1;
     priority_queue<int, vector<int>, Compare2> exq2;
 
@@ -47,13 +44,13 @@ int main()
 		pq.pop();
 	}
 
-    cout << endl;
+    cout << "\nFrom largest to smallest\n";
     while (!exq1.empty()) {
 		cout << "Popped Value : " << exq1.top() << endl;
 		exq1.pop();
 	}
 
-    cout << endl;
+    cout << "\nReverse order of first function\n";
     while (!exq2.empty()) {
 		cout << "Popped Value : " << exq2.top() << endl;
 		exq2.pop();
