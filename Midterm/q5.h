@@ -18,6 +18,10 @@ class Student {
         int getID() {return SID;}
         string getName() {return SName;}
         double *getScores() {return scores;}
+        void printScores() {
+            cout << SID << "\t" << SName << "\t" << scores[0];
+            cout << "  " << scores[1] << "  " << scores[2] << endl;
+        }
 };
 
 template <class T>
