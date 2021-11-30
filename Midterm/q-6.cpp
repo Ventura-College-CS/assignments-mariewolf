@@ -1,3 +1,4 @@
+#include <iostream>
 #include <queue>
 #include "q6.h"
 
@@ -20,4 +21,11 @@ int main() {
     pq.push(Student3);
     pq.push(Student4);
     pq.push(Student5);
+
+    cout << "\nPrinting from the queue:\nID\tNAME\tSCORES\n";
+    while (!pq.empty()) {
+        Student tempStudent = pq.top();
+        tempStudent.printScores();
+        pq.pop();
+    }
 }

@@ -1,7 +1,7 @@
 #ifndef Q6_H
 #define Q6_H
 #include <vector>
-using namespace std; //Using #include<string> breaks the program lol. "using namespace std;" in main also breaks the program. put it here.
+using namespace std;
 
 const int N = 3;
 class Student {
@@ -41,12 +41,12 @@ class Stack {
 };
 
 class StudentCompare {
-    double operator()(Student &s1, Student &s2) {
-        double score1 = 0, score2 = 0;
-        for (int i=0; i<N; i++) {
-            score1 += (s1.getScores())[i];
-            score2 += (s2.getScores())[i]; }
-        return score1 < score2;
-    }
+    public:
+        double operator()(Student &s1, Student &s2) {
+            double score1 = 0, score2 = 0;
+            for (int i=0; i<N; i++) {
+                score1 += (s1.getScores())[i];
+                score2 += (s2.getScores())[i]; }
+            return score1 < score2; }
 };
 #endif
