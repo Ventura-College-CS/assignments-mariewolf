@@ -31,7 +31,8 @@ int main() {
     cout << "\nPrinting from the stack:\nID\tNAME\tSCORES\n";
     while (!studentStack.isEmpty()) {
         Student tempStudent = studentStack.topEl();
-        tempStudent.printScores();
+        tempStudent.printStudent();
         studentStack.pop();
     }
+    return 0;
 }

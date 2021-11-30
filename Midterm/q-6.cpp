@@ -25,7 +25,9 @@ int main() {
     cout << "\nPrinting from the queue:\nID\tNAME\tSCORES\n";
     while (!pq.empty()) {
         Student tempStudent = pq.top();
-        tempStudent.printScores();
+        tempStudent.printStudent();
         pq.pop();
     }
+
+    return 0;
 }
