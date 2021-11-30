@@ -23,12 +23,12 @@ int main() {
 
     cout << "Current size of the stack: " << studentStack.size() << endl;
     
-    cout << "Get functions test: ID [" << Student1.getID() << "]" << endl;
-    cout << "Name [" << Student1.getName() << "]\tScores [" << (Student1.getScores())[0];
-    cout << 
+    cout << "Get functions test: ID [" << Student1.getID() << "]";
+    cout << " Name [" << Student1.getName() << "] Scores [" << (Student1.getScores())[0];
+    cout << ", " << (Student1.getScores())[1] << ", " << (Student1.getScores())[2] << "]";
 
 
-    cout << "Printing from the stack\nID\tNAME\tSCORES\n";
+    cout << "\nPrinting from the stack:\nID\tNAME\tSCORES\n";
     while (!studentStack.isEmpty()) {
         Student tempStudent = studentStack.topEl();
         tempStudent.printScores();
