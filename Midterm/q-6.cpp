@@ -1,9 +1,7 @@
-#include "q6.h"
 #include <queue>
+#include "q6.h"
 
 int main() {
-    //main function
-
     double sc1[N] = {75.8, 80.1, 85.2};
     double sc2[N] = {30.4, 20.5, 60.3};
     double sc3[N] = {99.9, 100, 98.5};
@@ -14,9 +12,9 @@ int main() {
     Student Student2(103, "James", sc2);
     Student Student3(102, "Brick", sc3);
     Student Student4(104, "Amy", sc4);
-    Student Student5(101, "Bill", sc5);
+    Student Student5(101, "Bill", sc5); 
 
-    priority_queue<Student, vector<Student>, StudentCompare<Student>> pq;
+    priority_queue<Student, vector<Student>, StudentCompare> pq;
     pq.push(Student1);
     pq.push(Student2);
     pq.push(Student3);

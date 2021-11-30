@@ -9,7 +9,7 @@ const int N = 3;
 class Student {
     private:
         int SID;
-        string SName;
+        std::string SName;
         double scores[N];
     public:
         Student() : SID(0), SName() {}
@@ -42,10 +42,9 @@ class Stack {
         int size() {return pool.size();}
 };
 
-template <class T>
 class StudentCompare {
-    operator()(Student &s1, Student &s2) {
-        int score1 = 0, score2 = 0;
+    double operator()(Student &s1, Student &s2) {
+        double score1 = 0, score2 = 0;
         for (int i=0; i<N; i++) {
             score1 += (s1.getScores())[i];
             score2 += (s2.getScores())[i]; }
