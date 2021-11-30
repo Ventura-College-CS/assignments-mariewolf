@@ -1,9 +1,7 @@
 #ifndef Q6_H
 #define Q6_H
 #include <vector>
-using namespace std;
-
-//copied from q5.h
+using namespace std; //Using #include<string> breaks the program lol. "using namespace std;" in main also breaks the program. put it here.
 
 const int N = 3;
 class Student {
