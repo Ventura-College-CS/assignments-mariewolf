@@ -19,13 +19,13 @@ int main() {
     int target = (arr[rand() % N]).getID(); //randomly choose pivot
     cout << "\nPivot: " << target << endl;
 
-    //do qsort & print array
-
+    qsort(arr, 0, N-1);
+    printArray(arr);
     return 0;
 }
 
 void makeArray(Course arr[]) {
-    ifstream inFile("courses.txt"); //I created my own courses file; hope that's okay!
+    ifstream inFile("courses.txt");
     if (inFile.fail()) {cerr << "File open error\n"; exit(0);} //file check
     int id, cr;
     string nm;
@@ -36,11 +36,6 @@ void makeArray(Course arr[]) {
         if (inFile.fail()) {cerr << "File read error\n"; exit(0);} //file check
     }
     inFile.close();
-
-    for (int i=0; i<N-1; i++) { //sort array
-        for (int j=i+1; j<N; j++)
-            if (arr[i].getID() > arr[j].getID()) swap(arr[i], arr[j]);
-    }
 }
 
 void printArray(Course arr[]) {
@@ -52,9 +47,18 @@ void printArray(Course arr[]) {
 void qsort(Course arr[], int first, int last) {
     int pivot_index;
     if (first>=last) return;
-    pivot_index = partition(arr, first, last);
+    pivot_index = partition(arr, first, last); //partition array around the pivot
     qsort(arr, first, pivot_index-1);
     qsort(arr, pivot_index+1, last);
 }
 
-int partition() {}
+int partition(Course arr[], int first, int last) {
+    int pivot = arr[last].getID(); //last element is the "pivot"
+    int i = -1;
+    for (int j=0; j<last; j++) {
+        if (arr[j].getID() < pivot) //if an element's ID is less than "pivot", increment i and swap element at j with element at i
+            swap(arr[++i], arr[j]);
+    }
+    swap(arr[i+1], arr[last]); //once all elements have been examined, swap pivot with element at i+1
+    return i+1; //return pivot index
+}
