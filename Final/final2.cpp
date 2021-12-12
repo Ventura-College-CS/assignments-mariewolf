@@ -6,7 +6,7 @@ const int N = 10; //number of courses
 void makeArray(Course []);
 void printArray(Course []);
 void qsort(Course [], int, int);
-void partition(Course [], int, int);
+int partition(Course [], int, int);
 
 //mostly copied from question 1
 
@@ -16,9 +16,10 @@ int main() {
     printArray(arr);
 
     srand(time(NULL));
-    int target = (arr[rand() % N]).getID(); //randomly choose target
+    int target = (arr[rand() % N]).getID(); //randomly choose pivot
     cout << "\nPivot: " << target << endl;
 
+    //do qsort & print array
 
     return 0;
 }
@@ -47,3 +48,13 @@ void printArray(Course arr[]) {
     for (int i=0; i<N; i++)
         cout << arr[i].getID() << "\t" << arr[i].getName() << "\t" << arr[i].getCredit() << endl; //using 'get' functions to print
 }
+
+void qsort(Course arr[], int first, int last) {
+    int pivot_index;
+    if (first>=last) return;
+    pivot_index = partition(arr, first, last);
+    qsort(arr, first, pivot_index-1);
+    qsort(arr, pivot_index+1, last);
+}
+
+int partition() {}
