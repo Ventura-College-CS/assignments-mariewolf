@@ -14,11 +14,7 @@ int main() {
     Course arr[N];
     makeArray(arr);
     printArray(arr);
-
-    srand(time(NULL));
-    int target = (arr[rand() % N]).getID(); //randomly choose pivot
-    cout << "\nPivot: " << target << endl;
-
+    cout << endl;
     qsort(arr, 0, N-1);
     printArray(arr);
     return 0;
