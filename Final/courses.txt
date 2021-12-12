@@ -1,0 +1,10 @@
+10001 PoliticalSci 3
+10028 DifferentialEq 3
+10034 MultivarCalc 5
+10049 Communications 4
+10053 LinearAlgebra 4
+10060 Accounting 3
+10071 Programming 2
+10014 HumanAnatomy 4
+10045 Engineering 3
+10022 ComputerSci 1

@@ -10,7 +10,8 @@ class Course {
         string name;
         int credit;
     public:
-        Course() {}
+        Course() : courseID(0), name(" "), credit(0) {}
+        Course(int id, string nm, int cr) : courseID(id), name(nm), credit(cr) {}
         int getID() {return courseID;}
         string getName() {return name;}
         int getCredit() {return credit;}
