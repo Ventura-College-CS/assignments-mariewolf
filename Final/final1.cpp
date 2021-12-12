@@ -9,7 +9,6 @@ void printArray(Course []);
 int binarySearch(Course [], int);
 
 int main() {
-    int target;
     Course arr[N];
     makeArray(arr);
     printArray(arr);
@@ -19,8 +18,10 @@ int main() {
     cout << "\nTarget: " << target << endl;
 
     int retIndex = binarySearch(arr, target);
-    //if found, return where
-    //if not, error
+    if (retIndex == -1) {cerr << "Target not found\n"; exit(0);}
+    else
+        cout << "Target found! Located at index " << retIndex << ", which is course " << arr[retIndex].getName() << endl; 
+
     return 0;
 }
 
@@ -44,7 +45,7 @@ void makeArray(Course arr[]) {
 }
 
 void printArray(Course arr[]) {
-    cout << "COURSE ID\tNAME\tCREDIT";
+    cout << "Printing course array...\nID\tNAME\t\tCREDIT\n";
     for (int i=0; i<N; i++)
         cout << arr[i].getID() << "\t" << arr[i].getName() << "\t" << arr[i].getCredit() << endl; //using 'get' functions to print
 }
@@ -55,6 +56,10 @@ int binarySearch(Course arr[], int target) {
     last = N-1;
 
     while (first <= last) {
-
+        int mid = (first+last)/2;
+        if (arr[mid].getID() == target) return mid;
+        else if (arr[mid].getID() < target) first = mid + 1;
+        else last = mid - 1;
     }
+    return -1;
 }
