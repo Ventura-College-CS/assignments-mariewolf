@@ -1,4 +1,4 @@
-#include "final1.hpp"
+#include "final2.hpp"
 #include <fstream>
 #include <time.h>
 const int N = 10; //number of courses

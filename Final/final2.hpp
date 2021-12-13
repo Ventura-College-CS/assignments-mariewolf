@@ -1,5 +1,5 @@
-#ifndef FINAL1_HPP
-#define FINAL1_HPP
+#ifndef FINAL2_HPP
+#define FINAL2_HPP
 #include <iostream>
 using namespace std;
 
