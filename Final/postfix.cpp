@@ -1,8 +1,6 @@
 #include "postfix.hpp"
-
+#include <stack>
 //mostly copied from previous assignment (5-2)
-
-using namespace std;
 
 int Postfix::isOperator(char op) {
 	switch (op)
@@ -40,23 +38,23 @@ int Postfix::calculate(int op1, int op2, char opr) {
 	return result;
 }
 
-int Postfix::Evaluation() {
+int Postfix::evaluation() {
     const int N = 20;
 	const int offset = 48;
-	Stack<int, N> stack;
+	stack<int> cStack;
 	char input;
 	int opr1, opr2, result;
 
 	for (int i = 0; i < expression.size(); i++) {
 		input = expression[i];
 		if (isdigit(input))
-			stack.push(int(input) - offset);
+			cStack.push(int(input) - offset);
 		else if (isOperator(input)) {
-			opr1 = stack.pop();
-			opr2 = stack.pop();
+			opr2 = cStack.top(); cStack.pop();
+            opr1 = cStack.top(); cStack.pop();
 			result = calculate(opr1, opr2, input);
-			stack.push(result);
+			cStack.push(result);
 		}
 	}
-    return stack.pop();
+    return cStack.top();
 }
